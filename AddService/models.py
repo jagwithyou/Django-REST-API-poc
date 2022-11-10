@@ -11,7 +11,7 @@ class UserModel(models.Model):
     country = models.CharField(max_length = 180)
 
     def __str__(self):
-        return self.user_service
+        return self.first_name
 
 class Car(models.Model):
     number_plate = models.IntegerField(primary_key=True)
@@ -20,7 +20,7 @@ class Car(models.Model):
     c_id = models.CharField(max_length = 180)
 
     def __str__(self):
-        return self.car
+        return self.number_plate
 
 class Ads(models.Model):
     a_id = models.IntegerField(primary_key=True)
@@ -29,4 +29,4 @@ class Ads(models.Model):
     price_per_km = models.CharField(max_length = 180)
 
     def __str__(self):
-        return self.car
+        return self.title
