@@ -10,7 +10,6 @@ class UserModel(models.Model):
     city = models.CharField(max_length = 180)
     country = models.CharField(max_length = 180)
 
-
     def __str__(self):
         return self.first_name
 
@@ -20,6 +19,7 @@ class Car(models.Model):
     brand = models.CharField(max_length = 180)
     c_id = models.CharField(max_length = 180)
     user_id = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, default=1)
+    # car is associated with user
 
     def __str__(self):
         return str(self.number_plate)
@@ -30,6 +30,7 @@ class Ads(models.Model):
     description = models.CharField(max_length = 180)
     price_per_km = models.CharField(max_length = 180)
     car_id = models.ForeignKey(Car, on_delete=models.DO_NOTHING, default=1)
+    # add is associated to car and indirectly (grandparent) associated with user
 
     def __str__(self):
         return self.title
